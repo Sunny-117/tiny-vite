@@ -1,0 +1,45 @@
+{
+  "name": "tiny-vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "mini-vite": "bin/mini-vite"
+  },
+  "scripts": {
+    "start": "tsup --watch",
+    "build": "tsup --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sunny-117/tiny-vite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sunny-117/tiny-vite/issues"
+  },
+  "homepage": "https://github.com/Sunny-117/tiny-vite#readme",
+  "dependencies": {
+    "@types/connect": "^3.4.35",
+    "@types/debug": "^4.1.8",
+    "@types/fs-extra": "^11.0.1",
+    "@types/resolve": "^1.20.2",
+    "@types/ws": "^8.5.5",
+    "cac": "^6.7.14",
+    "chokidar": "^3.5.3",
+    "connect": "^3.7.0",
+    "debug": "^4.3.4",
+    "es-module-lexer": "^1.3.0",
+    "esbuild": "^0.19.2",
+    "fs-extra": "^11.1.1",
+    "magic-string": "^0.30.3",
+    "picocolors": "^1.0.0",
+    "resolve": "^1.22.4",
+    "rollup": "^3.28.1",
+    "sirv": "^2.0.3",
+    "tsup": "^7.2.0",
+    "ws": "^8.13.0"
+  }
+}
