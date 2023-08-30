@@ -47,7 +47,6 @@ export function preBundlePlugin(deps: Set<string>): Plugin {
           namespace: "dep",
         },
         async (loadInfo) => {
-          console.log(loadInfo);
           await init;
           const id = loadInfo.path;
           const root = process.cwd();

@@ -40,6 +40,8 @@ mini-vite init
 mini-vite dev
 ```
 
+![](/assets/dev.png)
+
 ## 贡献
 
 如果你发现任何问题或有改进建议，欢迎提出 Issue 或提交 Pull Request。我们非常乐意接受社区的贡献，一起让 tiny-vite 变得更好！
