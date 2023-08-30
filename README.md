@@ -1,5 +1,7 @@
 # tiny-vite
 
+<img src="./assets/logo.png" />
+
 English | <a href="./README-zh_CN.md">简体中文</a>
 
 tiny-vite is a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes. Rooted in the foundational principles of the Vite build tool, it streamlines certain functionalities to enhance its agility and user-friendliness.
