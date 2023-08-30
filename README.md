@@ -1,40 +1,42 @@
 # tiny-vite
 
-tiny-vite 是一个轻量级的前端构建工具，旨在提供快速的开发体验和高效的构建过程。它基于 Vite 构建工具的核心思想，精简了一些功能，使其更加轻便易用。
+English | <a href="./README-zh_CN.md">简体中文</a>
 
-## 功能特性
+tiny-vite is a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes. Rooted in the foundational principles of the Vite build tool, it streamlines certain functionalities to enhance its agility and user-friendliness.
 
-- ⚡️ 快速的开发服务器： 使用内置的开发服务器，实现热模块替换（HMR）和快速重载，加速开发流程。
-- 🚀 即时编译：利用现代浏览器的 ES 模块特性，避免打包步骤，实现按需编译和加载，减少开发时间。
-- 📝 简化的配置： 仅需一个配置文件，即可快速启动项目，无需繁琐的配置过程。
-- 🎉 轻量级： 精简了复杂的功能，保持核心特性，使工具更加轻盈。
+## Feature
 
-## 安装方法
+- ⚡️ Swift Development Server: Utilizing an integrated development server, it achieves Hot Module Replacement (HMR) and rapid reloading, accelerating the development workflow.
+- 🚀 Instant Compilation: Leveraging modern browser ES module capabilities, it circumvents the bundling process to achieve on-demand compilation and loading, thereby reducing development time.
+- 📝 Streamlined Configuration: With just a single configuration file, projects can be initiated swiftly, eliminating the need for cumbersome setup procedures.
+- 🎉 Lightweight: Complex functionalities have been streamlined, retaining core features to ensure the tool's lightweight nature.
 
-在开始之前，请确保你的环境已经安装了 Node.js。
+## Install
 
-通过以下步骤安装 tiny-vite：
+Before you begin, please ensure that Node.js is installed in your environment.
 
-1. 全局安装 tiny-vite
+To install tiny-vite, follow these steps:
+
+1. Install tiny-vite globally by executing the following command:
 
 ```shell
 npm install -g tiny-vite
 ```
 
-2. 进入你的项目目录
+2. Navigate to your project directory.
 
 ```shell
 mkdir my-app
 cd my-app
 ```
 
-3. 初始化项目（生成配置文件和必要的目录结构）
+3. Initialize the project (generate configuration files and necessary directory structure).
 
 ```shell
 mini-vite init
 ```
 
-4. 启动开发服务器：
+4. Start the development server
 
 ```shell
 mini-vite dev
@@ -42,10 +44,10 @@ mini-vite dev
 
 ![](/assets/dev.png)
 
-## 贡献
+## Contributions
 
-如果你发现任何问题或有改进建议，欢迎提出 Issue 或提交 Pull Request。我们非常乐意接受社区的贡献，一起让 tiny-vite 变得更好！
+If you encounter any issues or have suggestions for improvement, feel free to raise an Issue or submit a Pull Request. We greatly appreciate community contributions in our endeavor to enhance tiny-vite together!
 
-## 许可证
+## License
 
-MIT 许可证下发布。查阅 LICENSE 文件获取更多信息。
+Released under the MIT License. Refer to the LICENSE file for more information."
