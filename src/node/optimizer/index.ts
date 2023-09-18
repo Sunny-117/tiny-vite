@@ -8,7 +8,7 @@ import { preBundlePlugin } from "./preBundlePlugin";
 export async function optimize(root: string) {
   // 1. 确定入口
   const entry = path.resolve(root, "src/main.tsx");
-  // 2. 从入口处扫描依赖
+  // 2. 从入口处扫描依赖(借助esbuild插件完成)
   const deps = new Set<string>();
   await build({
     entryPoints: [entry],

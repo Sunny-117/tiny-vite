@@ -54,7 +54,7 @@ export function preBundlePlugin(deps: Set<string>): Plugin {
           const code = await fs.readFile(entryPath, "utf-8");
           const [imports, exports] = await parse(code);
           let proxyModule = [];
-          // cjs
+          // handle commonjs require
           if (!imports.length && !exports.length) {
             // 构造代理模块
             const res = require(entryPath);
@@ -71,7 +71,7 @@ export function preBundlePlugin(deps: Set<string>): Plugin {
             proxyModule.push(`export * from "${entryPath}"`);
           }
           debug("代理模块内容: %o", proxyModule.join("\n"));
-          const loader = path.extname(entryPath).slice(1);
+          const loader = path.extname(entryPath).slice(1); // (.js).slice(1)=js后缀
           return {
             loader: loader as Loader,
             contents: proxyModule.join("\n"),
