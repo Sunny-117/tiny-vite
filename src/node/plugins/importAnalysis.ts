@@ -49,6 +49,12 @@ export function importAnalysisPlugin(): Plugin {
             ms.overwrite(modStart, modEnd, resolved.id);
           }
         }
+        // 静态资源
+        if (modSource.endsWith(".svg")) {
+          const resolvedUrl = path.join(path.dirname(id), modSource);
+          ms.overwrite(modStart, modEnd, `${resolvedUrl}?import`);
+          continue;
+        }
       }
       return {
         code: ms.toString(),
