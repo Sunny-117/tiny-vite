@@ -27,6 +27,9 @@ export function importAnalysisPlugin(): Plugin {
         return null;
       }
       await init;
+      const { moduleGraph } = serverContext;
+      const curMod = moduleGraph.getModuleById(id);
+      const importedModules = new Set<string>();
       // 解析 import 语句
       const [imports] = parse(code);
       const ms = new MagicString(code);
@@ -41,12 +44,14 @@ export function importAnalysisPlugin(): Plugin {
           const bundlePath = normalizePath(
             path.join("/", PRE_BUNDLE_DIR, `${modSource}.js`)
           );
+          importedModules.add(bundlePath);
           ms.overwrite(modStart, modEnd, bundlePath);
         } else if (modSource.startsWith(".") || modSource.startsWith("/")) {
           // 直接调用插件上下文的 resolve 方法，会自动经过路径解析插件的处理
           const resolved = await this.resolve(modSource, id);
           if (resolved) {
             ms.overwrite(modStart, modEnd, resolved.id);
+            importedModules.add(resolved);
           }
         }
         // 静态资源
@@ -56,6 +61,7 @@ export function importAnalysisPlugin(): Plugin {
           continue;
         }
       }
+      moduleGraph.updateModuleInfo(curMod!, importedModules);
       return {
         code: ms.toString(),
         // 生成 SourceMap
