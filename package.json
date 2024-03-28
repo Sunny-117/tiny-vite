@@ -10,7 +10,9 @@
     "start": "tsup --watch",
     "build": "tsup --minify",
     "release": "bumpp && pnpm publish",
-    "prepublishOnly": "pnpm run build"
+    "postinstall": "cd playground && pnpm install",
+    "prepublishOnly": "pnpm run build",
+    "playground": "cd playground && pnpm dev"
   },
   "repository": {
     "type": "git",
