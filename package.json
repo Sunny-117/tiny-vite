@@ -1,6 +1,6 @@
 {
   "name": "tiny-vite",
-  "version": "1.0.1",
+  "version": "2.0.1-beta.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "tsup --watch",
-    "build": "tsup --minify"
+    "build": "tsup --minify",
+    "release": "bumpp && pnpm publish",
+    "prepublishOnly": "pnpm run build"
   },
   "repository": {
     "type": "git",
@@ -30,7 +32,8 @@
     "@types/ws": "^8.5.3",
     "esbuild-darwin-arm64": "^0.14.38",
     "tsup": "^5.12.6",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "bumpp": "^9.2.1"
   },
   "dependencies": {
     "@babel/core": "^7.17.10",
