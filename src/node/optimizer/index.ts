@@ -1,14 +1,15 @@
-import path from "path";
 import { build } from "esbuild";
 import { green } from "picocolors";
+import path from "path";
 import { scanPlugin } from "./scanPlugin";
-import { PRE_BUNDLE_DIR } from "../constants";
 import { preBundlePlugin } from "./preBundlePlugin";
+import { PRE_BUNDLE_DIR } from "../constants";
 
 export async function optimize(root: string) {
   // 1. 确定入口
   const entry = path.resolve(root, "src/main.tsx");
-  // 2. 从入口处扫描依赖(借助esbuild插件完成)
+
+  // 2. 从入口处扫描依赖
   const deps = new Set<string>();
   await build({
     entryPoints: [entry],
@@ -20,8 +21,9 @@ export async function optimize(root: string) {
     `${green("需要预构建的依赖")}:\n${[...deps]
       .map(green)
       .map((item) => `  ${item}`)
-      .join("\n")}`
+      .join("\n")}\n`
   );
+
   // 3. 预构建依赖
   await build({
     entryPoints: [...deps],

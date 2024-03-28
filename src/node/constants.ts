@@ -1,4 +1,5 @@
 import path from "path";
+
 export const EXTERNAL_TYPES = [
   "css",
   "less",
@@ -21,16 +22,12 @@ export const EXTERNAL_TYPES = [
   "avif",
 ];
 
-export const BARE_IMPORT_RE = /^[\w@][^:]/;
-
-export const PRE_BUNDLE_DIR = path.join("node_modules", ".m-vite");
-
 export const JS_TYPES_RE = /\.(?:j|t)sx?$|\.mjs$/;
+export const BARE_IMPORT_RE = /^[\w@][^:]/;
 export const QEURY_RE = /\?.*$/s;
 export const HASH_RE = /#.*$/s;
-
+export const PRE_BUNDLE_DIR = path.join("node_modules", ".m-vite");
 export const DEFAULT_EXTERSIONS = [".tsx", ".ts", ".jsx", "js"];
-
-export const HMR_PORT = 24678;
-
+export const HMR_HEADER = "vite-hmr";
 export const CLIENT_PUBLIC_PATH = "/@vite/client";
+export const HMR_PORT = 24678;

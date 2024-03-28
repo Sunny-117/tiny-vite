@@ -7,7 +7,6 @@ import path from "path";
 export function esbuildTransformPlugin(): Plugin {
   return {
     name: "m-vite:esbuild-transform",
-    // 加载模块
     async load(id) {
       if (isJSRequest(id)) {
         try {
