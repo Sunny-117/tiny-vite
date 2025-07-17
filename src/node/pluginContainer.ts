@@ -13,7 +13,7 @@ export interface PluginContainer {
   transform(code: string, id: string): Promise<SourceDescription | null>;
 }
 
-// 模拟 Rollup 的插件机制
+// 在开发环境中，Vite 模拟了 Rollup 的插件机制，设计了一个 PluginContainer 对象来调度各个插件。
 export const createPluginContainer = (plugins: Plugin[]): PluginContainer => {
   // 插件上下文对象
   // @ts-ignore 这里仅实现上下文对象的 resolve 方法

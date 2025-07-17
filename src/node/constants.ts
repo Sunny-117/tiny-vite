@@ -23,7 +23,7 @@ export const EXTERNAL_TYPES = [
 ];
 
 export const JS_TYPES_RE = /\.(?:j|t)sx?$|\.mjs$/;
-export const BARE_IMPORT_RE = /^[\w@][^:]/;
+export const BARE_IMPORT_RE = /^[\w@][^:]/; // 裸模块导入：import React from "react"
 export const QEURY_RE = /\?.*$/s;
 export const HASH_RE = /#.*$/s;
 export const PRE_BUNDLE_DIR = path.join("node_modules", ".m-vite");
