@@ -12,6 +12,7 @@ import chokidar, { FSWatcher } from "chokidar";
 import { bindingHMREvents } from "../hmr";
 import { Plugin } from "../plugin";
 import { normalizePath } from "../utils";
+import { htmlFallbackMiddleware } from "./middlewares/htmlFallback";
 
 export interface ServerContext {
   root: string;
@@ -36,7 +37,7 @@ export async function startDevServer() {
   });
   // WebSocket 对象
   const ws = createWebSocketServer(app);
-  // // 开发服务器上下文
+  // 开发服务器上下文
   const serverContext: ServerContext = {
     root: normalizePath(process.cwd()),
     app,
@@ -61,6 +62,9 @@ export async function startDevServer() {
 
   // 静态资源
   app.use(staticMiddleware(serverContext.root));
+
+  // htmlFallbackMiddleware
+  app.use(htmlFallbackMiddleware(serverContext, true))
 
   app.listen(3000, async () => {
     await optimizeDeps(root);
