@@ -1,5 +1,5 @@
-// tsup.config.ts
-import { defineConfig } from "tsup";
+// tsdown.config.ts
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   // 后续会增加 entry
@@ -14,5 +14,5 @@ export default defineConfig({
   // 生成 sourcemap
   sourcemap: true,
   // 没有拆包的需求，关闭拆包能力
-  splitting: false,
+  // splitting: false,
 });
