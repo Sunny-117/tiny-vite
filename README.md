@@ -13,6 +13,21 @@ tiny-vite is a lightweight frontend build tool designed to deliver swift develop
 - 📝 Streamlined Configuration: With just a single configuration file, projects can be initiated swiftly, eliminating the need for cumbersome setup procedures.
 - 🎉 Lightweight: Complex functionalities have been streamlined, retaining core features to ensure the tool's lightweight nature.
 
+## Progress
+
+* [x] Build script
+* [x] CLI scaffolding tool
+* [x] Static file middleware
+* [x] HTTP server
+* [x] Dependency pre-bundling: dependency scanning, dependency building, import path rewriting
+* [x] Plugin system: plugin container and plugin context
+* [x] Core compilation capabilities: entry HTML loading, TS/TSX/JS/JSX compilation, CSS compilation, static asset loading
+* [x] HMR (Hot Module Replacement): module graph, HMR server, HMR client
+* [x] Vue plugin support
+* [x] Style support
+* [x] Environment variable support
+
+
 ## Install
 
 Before you begin, please ensure that Node.js is installed in your environment.
