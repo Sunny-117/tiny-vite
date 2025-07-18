@@ -32,7 +32,7 @@ export function importAnalysisPlugin(): Plugin {
       const importedModules = new Set<string>();
       const [imports] = parse(code);
       const ms = new MagicString(code);
-      const resolve = async (id: string, importer?: string) => {
+      const resolve = async (id: string, importer: string = '') => {
         const resolved = await serverContext.pluginContainer.resolveId(
           id,
           normalizePath(importer)
