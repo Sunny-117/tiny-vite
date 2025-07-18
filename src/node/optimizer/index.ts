@@ -7,6 +7,7 @@ import { PRE_BUNDLE_DIR } from "../constants";
 
 export async function optimizeDeps(root: string) {
   // 1. 确定入口(源码中：computeEntries，判断了各种格式，进行了参数归一化)
+  // resolveConfig -> loadConfigFromFile
   const entry = path.resolve(root, "src/main.tsx");
 
   // 2. 从入口处扫描依赖
@@ -25,6 +26,7 @@ export async function optimizeDeps(root: string) {
   );
 
   // 3. 预构建依赖
+  // 对应源码：bundleConfigFile: esbuild进行构建
   await build({
     entryPoints: [...deps],
     write: true,

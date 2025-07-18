@@ -25,7 +25,7 @@ export interface ServerContext {
 }
 
 export async function startDevServer() {
-  const app = connect();
+  const app = connect(); // vite1 的时候，内部用的koa，为了和库解耦，为了更加可定制化，用了http内置模块
   const root = process.cwd();
   const startTime = Date.now();
   const plugins = resolvePlugins();
