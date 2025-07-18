@@ -39,8 +39,9 @@ interface HotCallback {
   deps: string[];
   fn: (modules: object[]) => void;
 }
-
+// HMR 模块表
 const hotModulesMap = new Map<string, HotModule>();
+// 不再生效的模块表
 const pruneMap = new Map<string, (data: any) => void | Promise<void>>();
 
 export const createHotContext = (ownerPath: string) => {
@@ -54,19 +55,25 @@ export const createHotContext = (ownerPath: string) => {
       id: ownerPath,
       callbacks: [],
     };
+    // callbacks 属性存放 accept 的依赖、依赖改动后对应的回调逻辑
     mod.callbacks.push({
       deps,
       fn: callback,
     });
+    // hotModulesMap：记录该模块所 accept 的模块，以及 accept 的模块更新之后回调逻辑。
     hotModulesMap.set(ownerPath, mod);
   }
 
   return {
     accept(deps: any) {
+      // 这里仅考虑接受自身模块更新的情况
+      // import.meta.hot.accept()
       if (typeof deps === "function" || !deps) {
-        acceptDeps([ownerPath], ([mod]) => deps && deps(mod));
+        acceptDeps([ownerPath], ([mod]: string[]) => deps && deps(mod));
       }
     },
+    // 模块不再生效的回调
+    // import.meta.hot.prune(() => {})
     prune(cb: (data: any) => void) {
       pruneMap.set(ownerPath, cb);
     },
