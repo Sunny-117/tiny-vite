@@ -1,7 +1,7 @@
 import { build } from "esbuild";
 import { green } from "picocolors";
 import path from "path";
-import { scanPlugin } from "./scanPlugin";
+import { esbuildScanPlugin } from "./esbuildScanPlugin";
 import { preBundlePlugin } from "./preBundlePlugin";
 import { PRE_BUNDLE_DIR } from "../constants";
 
@@ -15,7 +15,7 @@ export async function optimize(root: string) {
     entryPoints: [entry],
     bundle: true,
     write: false,
-    plugins: [scanPlugin(deps)],
+    plugins: [esbuildScanPlugin(deps)],
   });
   console.log(
     `${green("需要预构建的依赖")}:\n${[...deps]

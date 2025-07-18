@@ -7,7 +7,7 @@
     "mini-vite": "bin/mini-vite"
   },
   "scripts": {
-    "start": "tsup --watch",
+    "dev": "tsup --watch",
     "build": "tsup --minify",
     "release": "bumpp && pnpm publish",
     "postinstall": "cd playground && pnpm install",
