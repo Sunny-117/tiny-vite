@@ -35,13 +35,13 @@ cd my-app
 3. Initialize the project (generate configuration files and necessary directory structure).
 
 ```shell
-mini-vite init
+tiny-vite init
 ```
 
 4. Start the development server
 
 ```shell
-mini-vite dev
+tiny-vite dev
 ```
 
 ![](/assets/dev.png)

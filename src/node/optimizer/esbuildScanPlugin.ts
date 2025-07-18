@@ -1,6 +1,7 @@
 import { Plugin } from "esbuild";
 import { BARE_IMPORT_RE, EXTERNAL_TYPES } from "../constants";
 
+// 真正执行依赖预处理的地方
 export function esbuildScanPlugin(deps: Set<string>): Plugin {
   return {
     name: "esbuild:scan-deps",

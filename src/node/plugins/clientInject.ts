@@ -22,7 +22,7 @@ export function clientInjectPlugin(): Plugin {
         const realPath = path.join(
           serverContext.root,
           "node_modules",
-          "mini-vite",
+          "tiny-vite",
           "dist",
           "client.mjs"
         );

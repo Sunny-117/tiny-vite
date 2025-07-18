@@ -43,7 +43,7 @@ export function preBundlePlugin(deps: Set<string>): Plugin {
           namespace: "dep",
         },
         async (loadInfo) => {
-          await init;
+          await init; // es-module-lexer 词法分析
           const id = loadInfo.path;
           const root = process.cwd();
           const entryPath = normalizePath(resolve.sync(id, { basedir: root }));

@@ -5,8 +5,8 @@ import { esbuildScanPlugin } from "./esbuildScanPlugin";
 import { preBundlePlugin } from "./preBundlePlugin";
 import { PRE_BUNDLE_DIR } from "../constants";
 
-export async function optimize(root: string) {
-  // 1. 确定入口
+export async function optimizeDeps(root: string) {
+  // 1. 确定入口(源码中：computeEntries，判断了各种格式，进行了参数归一化)
   const entry = path.resolve(root, "src/main.tsx");
 
   // 2. 从入口处扫描依赖

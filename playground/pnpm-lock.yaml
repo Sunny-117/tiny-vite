@@ -24,7 +24,7 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^1.3.0
         version: 1.3.2
-      mini-vite:
+      tiny-vite:
         specifier: ../
         version: link:..
       typescript:

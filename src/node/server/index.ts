@@ -1,5 +1,5 @@
 import connect from "connect";
-import { optimize } from "../optimizer/index";
+import { optimizeDeps } from "../optimizer";
 import { blue, green } from "picocolors";
 import { transformMiddleware } from "./middlewares/transform";
 import { ModuleGraph } from "../ModuleGraph";
@@ -53,7 +53,7 @@ export async function startDevServer() {
     }
   }
 
-  // // 核心编译逻辑
+  // 核心编译逻辑
   app.use(transformMiddleware(serverContext));
 
   // 入口 HTML 资源
@@ -63,7 +63,7 @@ export async function startDevServer() {
   app.use(staticMiddleware(serverContext.root));
 
   app.listen(3000, async () => {
-    await optimize(root);
+    await optimizeDeps(root);
     console.log(
       green("🚀 No-Bundle 服务已经成功启动!"),
       `耗时: ${Date.now() - startTime}ms`

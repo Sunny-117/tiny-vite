@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "mini-vite"
+    "dev": "tiny-vite"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -13,7 +13,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^1.3.0",
-    "mini-vite": "../",
+    "tiny-vite": "../",
     "typescript": "^4.6.3"
   }
 }

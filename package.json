@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "mini-vite": "bin/mini-vite"
+    "tiny-vite": "bin/tiny-vite"
   },
   "scripts": {
     "dev": "tsup --watch",

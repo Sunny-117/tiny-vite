@@ -33,13 +33,13 @@ cd my-app
 3. 初始化项目（生成配置文件和必要的目录结构）
 
 ```shell
-mini-vite init
+tiny-vite init
 ```
 
 4. 启动开发服务器：
 
 ```shell
-mini-vite dev
+tiny-vite dev
 ```
 
 ![](/assets/dev.png)
