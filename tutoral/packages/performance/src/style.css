@@ -1,0 +1,22 @@
+:root {
+	--adjust-size: 0px;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	overscroll-behavior-x: none;
+	overscroll-behavior-y: none;
+	scroll-behavior: smooth;
+}
+body {
+	position: relative;
+	color: #222;
+	font-family: "Kalam", sans-serif;
+	min-height: 100vh;
+	overflow-x: hidden;
+	background-size: cover;
+}
