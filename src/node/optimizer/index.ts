@@ -31,13 +31,20 @@ export async function optimizeDeps(root: string) {
 
   // 3. 预构建依赖
   // 对应源码：bundleConfigFile: rolldown进行构建
+  // 将 deps 转换为对象形式，保留完整路径作为入口名
+  const inputObj: Record<string, string> = {};
+  for (const dep of deps) {
+    // 使用模块名作为 key，这样输出文件名会保留路径结构
+    inputObj[dep] = dep;
+  }
   const bundle = await rolldown({
-    input: [...deps],
+    input: inputObj,
     plugins: [preBundlePlugin(deps)],
   });
   await bundle.write({
     dir: path.resolve(root, PRE_BUNDLE_DIR),
     format: "esm",
+    entryFileNames: "[name].js",
     // rolldown 默认支持 code splitting
   });
   await bundle.close();
