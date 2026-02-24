@@ -7,7 +7,12 @@
       "Bash(pnpm dev)",
       "Bash(curl:*)",
       "Bash(npx tsdown:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(npx tiny-vite build:*)",
+      "Bash(pkill:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(ls:*)"
     ]
   }
 }

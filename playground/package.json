@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "tiny-vite"
+    "dev": "tiny-vite dev",
+    "build": "tiny-vite build"
   },
   "dependencies": {
     "react": "^19.1.0",

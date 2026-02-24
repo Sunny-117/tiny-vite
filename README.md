@@ -6,12 +6,52 @@ English | <a href="./README-zh_CN.md">简体中文</a>
 
 tiny-vite is a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes. Rooted in the foundational principles of the Vite build tool, it streamlines certain functionalities to enhance its agility and user-friendliness.
 
+## Architecture Evolution
+
+### From Dual-Engine to Rolldown
+
+The original Vite uses a **dual-engine architecture**:
+- **Development**: esbuild for dependency pre-bundling (fast cold start)
+- **Production**: Rollup for bundling (mature plugin ecosystem, tree-shaking)
+
+This architecture has a fundamental issue: **dev/prod inconsistency**. The same code may behave differently in development vs production due to different bundlers.
+
+**tiny-vite has migrated to [Rolldown](https://rolldown.rs/)** - a Rust-based bundler that aims to unify development and production builds:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     tiny-vite v2.x                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   Development          Production                           │
+│   ┌─────────┐         ┌─────────┐                          │
+│   │ Rolldown│         │ Rolldown│                          │
+│   │  scan   │         │  build  │                          │
+│   │ prebund │         │         │                          │
+│   └─────────┘         └─────────┘                          │
+│        │                   │                                │
+│        └───────┬───────────┘                                │
+│                │                                            │
+│         Same Engine                                         │
+│         Same Behavior                                       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Benefits of Rolldown
+
+- **Unified Engine**: Same bundler for dev and prod, eliminating inconsistencies
+- **Rust Performance**: Near-native speed for both scanning and bundling
+- **Rollup Compatible**: Supports most Rollup plugins
+- **Built-in Features**: Native support for TypeScript, JSX transformation
+
 ## Feature
 
 - ⚡️ Swift Development Server: Utilizing an integrated development server, it achieves Hot Module Replacement (HMR) and rapid reloading, accelerating the development workflow.
 - 🚀 Instant Compilation: Leveraging modern browser ES module capabilities, it circumvents the bundling process to achieve on-demand compilation and loading, thereby reducing development time.
 - 📝 Streamlined Configuration: With just a single configuration file, projects can be initiated swiftly, eliminating the need for cumbersome setup procedures.
 - 🎉 Lightweight: Complex functionalities have been streamlined, retaining core features to ensure the tool's lightweight nature.
+- 🦀 Rolldown Powered: Unified Rust-based bundler for both development and production.
 
 ## Progress
 
@@ -23,6 +63,7 @@ tiny-vite is a lightweight frontend build tool designed to deliver swift develop
 * [x] Plugin system: plugin container and plugin context
 * [x] Core compilation capabilities: entry HTML loading, TS/TSX/JS/JSX compilation, CSS compilation, static asset loading
 * [x] HMR (Hot Module Replacement): module graph, HMR server, HMR client
+* [x] Production build: rolldown bundling, CSS extraction, asset handling
 * [x] Vue plugin support
 * [x] Style support
 * [x] Environment variable support
@@ -57,6 +98,12 @@ tiny-vite init
 
 ```shell
 tiny-vite dev
+```
+
+5. Build for production
+
+```shell
+tiny-vite build
 ```
 
 ![](/assets/dev.png)
