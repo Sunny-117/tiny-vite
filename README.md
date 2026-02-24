@@ -74,7 +74,7 @@
 tiny-vite dev
 ```
 
-3. 生产构建：
+生产构建：
 
 ```shell
 tiny-vite build
