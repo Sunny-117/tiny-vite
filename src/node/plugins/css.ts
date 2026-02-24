@@ -1,4 +1,5 @@
-import { readFile } from "fs-extra";
+import fs from "fs-extra";
+const { readFile } = fs;
 import { CLIENT_PUBLIC_PATH } from "../constants";
 import { Plugin } from "../plugin";
 import { ServerContext } from "../server";

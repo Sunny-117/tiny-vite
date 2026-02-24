@@ -1,6 +1,7 @@
 import connect from "connect";
 import { optimizeDeps } from "../optimizer";
-import { blue, green } from "picocolors";
+import pc from "picocolors";
+const { blue, green } = pc;
 import { transformMiddleware } from "./middlewares/transform";
 import { ModuleGraph } from "../ModuleGraph";
 import { createPluginContainer, PluginContainer } from "../pluginContainer";

@@ -1,7 +1,8 @@
 import { NextHandleFunction } from "connect";
 import { ServerContext } from "../index";
 import path from "path";
-import { pathExists, readFile } from "fs-extra";
+import fs from "fs-extra";
+const { pathExists, readFile } = fs;
 
 export function indexHtmlMiddware(
   serverContext: ServerContext

@@ -1,5 +1,6 @@
 import { ServerContext } from "./server/index";
-import { blue, green } from "picocolors";
+import pc from "picocolors";
+const { blue, green } = pc;
 import { getShortName } from "./utils";
 
 export function bindingHMREvents(serverContext: ServerContext) {

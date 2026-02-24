@@ -1,4 +1,4 @@
-import { esbuildTransformPlugin } from "./esbuild";
+import { rolldownTransformPlugin } from "./rolldownTransform";
 import { resolvePlugin } from "./resolve";
 import { importAnalysisPlugin } from "./importAnalysis";
 import { Plugin } from "../plugin";
@@ -11,7 +11,7 @@ export function resolvePlugins(): Plugin[] {
   return [
     clientInjectPlugin(),
     resolvePlugin(),
-    esbuildTransformPlugin(),
+    rolldownTransformPlugin(),
     reactHMRPlugin(),
     importAnalysisPlugin(),
     cssPlugin(),

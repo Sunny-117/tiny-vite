@@ -1,4 +1,4 @@
-import { LoadResult, PartialResolvedId, SourceDescription } from "rollup";
+import type { LoadResult, PartialResolvedId, SourceDescription } from "rolldown";
 import { ServerContext } from "./server";
 
 export type ServerHook = (

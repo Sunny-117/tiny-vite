@@ -1,12 +1,13 @@
-import { readFile } from "fs-extra";
+import fs from "fs-extra";
+const { readFile } = fs;
 import { Plugin } from "../plugin";
 import { isJSRequest } from "../utils";
-import esbuild from "esbuild";
+import { transform } from "rolldown/utils";
 import path from "path";
 
-export function esbuildTransformPlugin(): Plugin {
+export function rolldownTransformPlugin(): Plugin {
   return {
-    name: "m-vite:esbuild-transform",
+    name: "m-vite:rolldown-transform",
     async load(id) {
       if (isJSRequest(id)) {
         try {
@@ -20,11 +21,9 @@ export function esbuildTransformPlugin(): Plugin {
     async transform(code, id) {
       if (isJSRequest(id)) {
         const extname = path.extname(id).slice(1);
-        const { code: transformedCode, map } = await esbuild.transform(code, {
-          target: "esnext",
-          format: "esm",
+        const { code: transformedCode, map } = await transform(id, code, {
+          lang: extname as "js" | "ts" | "jsx" | "tsx",
           sourcemap: true,
-          loader: extname as "js" | "ts" | "jsx" | "tsx",
         });
         return {
           code: transformedCode,

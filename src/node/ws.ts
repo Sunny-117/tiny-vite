@@ -1,5 +1,6 @@
 import connect from "connect";
-import { red } from "picocolors";
+import pc from "picocolors";
+const { red } = pc;
 import { WebSocketServer, WebSocket } from "ws";
 import { HMR_PORT } from "./constants";
 

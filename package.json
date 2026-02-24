@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "tsdown --watch",
-    "build": "tsdown --minify",
+    "build": "tsdown",
+    "build:tsup": "tsup",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build",
     "playground": "cd playground && pnpm dev"
@@ -32,9 +33,9 @@
     "@types/resolve": "^1.20.2",
     "@types/ws": "^8.5.3",
     "bumpp": "^9.2.1",
-    "esbuild-darwin-arm64": "^0.14.38",
     "sharp": "^0.34.5",
-    "tsdown": "^0.12.9",
+    "tsdown": "^0.20.3",
+    "tsup": "^8.5.1",
     "typescript": "^4.6.4"
   },
   "dependencies": {
@@ -43,14 +44,13 @@
     "chokidar": "^3.5.3",
     "connect": "^3.7.0",
     "debug": "^4.3.4",
-    "es-module-lexer": "^0.10.5",
-    "esbuild": "^0.14.38",
+    "es-module-lexer": "^2.0.0",
     "fs-extra": "^10.1.0",
     "magic-string": "^0.26.1",
     "picocolors": "^1.0.0",
     "react-refresh": "^0.13.0",
     "resolve": "^1.22.0",
-    "rollup": "^2.70.2",
+    "rolldown": "1.0.0-rc.5",
     "sirv": "^2.0.2",
     "ws": "^8.5.0"
   }

@@ -1,5 +1,5 @@
 // tsdown.config.ts
-import { defineConfig } from "tsdown";
+import { defineConfig } from "tsup";
 
 export default defineConfig({
   // 后续会增加 entry
@@ -13,7 +13,6 @@ export default defineConfig({
   target: "es2020",
   // 生成 sourcemap
   sourcemap: true,
-  shims: true
   // 没有拆包的需求，关闭拆包能力
   // splitting: false,
 });
