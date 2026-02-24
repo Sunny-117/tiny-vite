@@ -4,7 +4,7 @@
 
 English | <a href="./README.md">简体中文</a>
 
-tiny-vite is a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes. Rooted in the foundational principles of the Vite build tool, it streamlines certain functionalities to enhance its agility and user-friendliness.
+⚡️ a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes. Powered by Rolldown unified engine, eliminating dev/prod inconsistency. Supports ModuleGraph, HMR, plugin architecture, single-file compilation, and code minification.
 
 ## Architecture Evolution
 

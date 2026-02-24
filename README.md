@@ -4,7 +4,7 @@
 
 简体中文 | <a href="./README-en.md">English</a>
 
-tiny-vite 是一个轻量级的前端构建工具，旨在提供快速的开发体验和高效的构建过程。它基于 Vite 构建工具的核心思想，精简了一些功能，使其更加轻便易用。
+⚡️ a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes。基于 Rolldown 统一引擎，告别开发/生产不一致问题。支持 ModuleGraph，HMR，插件架构，单文件编译，代码压缩
 
 ## 架构演进
 
