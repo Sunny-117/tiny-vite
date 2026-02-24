@@ -69,40 +69,10 @@ This architecture has a fundamental issue: **dev/prod inconsistency**. The same 
 * [x] Environment variable support
 
 
-## Install
-
-Before you begin, please ensure that Node.js is installed in your environment.
-
-To install tiny-vite, follow these steps:
-
-1. Install tiny-vite globally by executing the following command:
-
-```shell
-npm install -g tiny-vite
-```
-
-2. Navigate to your project directory.
-
-```shell
-mkdir my-app
-cd my-app
-```
-
-3. Initialize the project (generate configuration files and necessary directory structure).
-
-```shell
-tiny-vite init
-```
-
-4. Start the development server
+## Usage
 
 ```shell
 tiny-vite dev
-```
-
-5. Build for production
-
-```shell
 tiny-vite build
 ```
 

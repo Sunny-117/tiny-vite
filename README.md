@@ -68,38 +68,13 @@
 - [x] 支持 style
 - [x] 支持环境变量
 
-## 安装方法
-
-在开始之前，请确保你的环境已经安装了 Node.js。
-
-通过以下步骤安装 tiny-vite：
-
-1. 全局安装 tiny-vite
-
-```shell
-npm install -g tiny-vite
-```
-
-2. 进入你的项目目录
-
-```shell
-mkdir my-app
-cd my-app
-```
-
-3. 初始化项目（生成配置文件和必要的目录结构）
-
-```shell
-tiny-vite init
-```
-
-4. 启动开发服务器：
+## 使用方法
 
 ```shell
 tiny-vite dev
 ```
 
-5. 生产构建：
+3. 生产构建：
 
 ```shell
 tiny-vite build
