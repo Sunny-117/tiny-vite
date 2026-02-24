@@ -7,8 +7,8 @@ export default defineConfig({
     index: "src/node/cli.ts",
     client: "src/client/client.ts",
   },
-  // 产物格式，包含 esm 和 cjs 格式
-  format: ["esm", "cjs"],
+  // rolldown 只支持esm
+  format: ["esm"],
   // 目标语法
   target: "es2020",
   // 生成 sourcemap
