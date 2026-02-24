@@ -1,4 +1,4 @@
-import { PartialResolvedId, TransformResult } from "rollup";
+import type { PartialResolvedId, TransformResult } from "rolldown";
 import { cleanUrl } from "./utils";
 
 export class ModuleNode {

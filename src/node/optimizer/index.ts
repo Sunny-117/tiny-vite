@@ -1,7 +1,7 @@
-import { build } from "esbuild";
+import { rolldown } from "rolldown";
 import { green } from "picocolors";
 import path from "path";
-import { esbuildScanPlugin } from "./esbuildScanPlugin";
+import { rolldownScanPlugin } from "./rolldownScanPlugin";
 import { preBundlePlugin } from "./preBundlePlugin";
 import { PRE_BUNDLE_DIR } from "../constants";
 
@@ -12,12 +12,15 @@ export async function optimizeDeps(root: string) {
 
   // 2. 从入口处扫描依赖
   const deps = new Set<string>();
-  await build({
-    entryPoints: [entry],
-    bundle: true,
-    write: false,
-    plugins: [esbuildScanPlugin(deps)],
+  const scanBuild = await rolldown({
+    input: [entry],
+    plugins: [rolldownScanPlugin(deps)],
   });
+  await scanBuild.write({
+    dir: path.resolve(root, ".tiny-vite-scan-temp"),
+  });
+  await scanBuild.close();
+
   console.log(
     `${green("需要预构建的依赖")}:\n${[...deps]
       .map(green)
@@ -26,14 +29,15 @@ export async function optimizeDeps(root: string) {
   );
 
   // 3. 预构建依赖
-  // 对应源码：bundleConfigFile: esbuild进行构建
-  await build({
-    entryPoints: [...deps],
-    write: true,
-    bundle: true,
-    format: "esm",
-    splitting: true,
-    outdir: path.resolve(root, PRE_BUNDLE_DIR),
+  // 对应源码：bundleConfigFile: rolldown进行构建
+  const bundle = await rolldown({
+    input: [...deps],
     plugins: [preBundlePlugin(deps)],
   });
+  await bundle.write({
+    dir: path.resolve(root, PRE_BUNDLE_DIR),
+    format: "esm",
+    // rolldown 默认支持 code splitting
+  });
+  await bundle.close();
 }
