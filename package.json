@@ -7,9 +7,8 @@
     "tiny-vite": "bin/tiny-vite"
   },
   "scripts": {
-    "dev": "tsdown --watch",
-    "build": "tsdown",
-    "build:tsup": "tsup",
+    "dev": "robuild --watch",
+    "build": "robuild",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build",
     "playground": "cd playground && pnpm dev"
@@ -33,9 +32,8 @@
     "@types/resolve": "^1.20.2",
     "@types/ws": "^8.5.3",
     "bumpp": "^9.2.1",
+    "robuild": "^0.1.12",
     "sharp": "^0.34.5",
-    "tsdown": "^0.20.3",
-    "tsup": "^8.5.1",
     "typescript": "^4.6.4"
   },
   "dependencies": {

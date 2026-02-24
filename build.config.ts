@@ -1,4 +1,4 @@
-import { defineConfig } from "tsdown";
+import { defineConfig } from "robuild";
 
 export default defineConfig({
   // 后续会增加 entry
@@ -13,5 +13,4 @@ export default defineConfig({
   // 生成 sourcemap
   sourcemap: true,
   shims: true,
-  inlineOnly: false,
 });
