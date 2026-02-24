@@ -1,4 +1,3 @@
-// tsdown.config.ts
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
@@ -13,7 +12,6 @@ export default defineConfig({
   target: "es2020",
   // 生成 sourcemap
   sourcemap: true,
-  shims: true
-  // 没有拆包的需求，关闭拆包能力
-  // splitting: false,
+  shims: true,
+  inlineOnly: false,
 });
