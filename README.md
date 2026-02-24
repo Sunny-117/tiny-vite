@@ -2,105 +2,104 @@
 
 <img src="./assets/logo.png" />
 
-English | <a href="./README-zh_CN.md">简体中文</a>
+简体中文 | <a href="./README-en.md">English</a>
 
-tiny-vite is a lightweight frontend build tool designed to deliver swift development experiences and efficient build processes. Rooted in the foundational principles of the Vite build tool, it streamlines certain functionalities to enhance its agility and user-friendliness.
+tiny-vite 是一个轻量级的前端构建工具，旨在提供快速的开发体验和高效的构建过程。它基于 Vite 构建工具的核心思想，精简了一些功能，使其更加轻便易用。
 
-## Architecture Evolution
+## 架构演进
 
-### From Dual-Engine to Rolldown
+### 从双引擎到 Rolldown
 
-The original Vite uses a **dual-engine architecture**:
-- **Development**: esbuild for dependency pre-bundling (fast cold start)
-- **Production**: Rollup for bundling (mature plugin ecosystem, tree-shaking)
+原版 Vite 采用**双引擎架构**：
+- **开发环境**：esbuild 进行依赖预构建（快速冷启动）
+- **生产环境**：Rollup 进行打包（成熟的插件生态，tree-shaking）
 
-This architecture has a fundamental issue: **dev/prod inconsistency**. The same code may behave differently in development vs production due to different bundlers.
+这种架构存在一个根本性问题：**开发/生产不一致**。由于使用不同的打包器，同样的代码在开发和生产环境可能表现不同。
 
-**tiny-vite has migrated to [Rolldown](https://rolldown.rs/)** - a Rust-based bundler that aims to unify development and production builds:
+**tiny-vite 已迁移至 [Rolldown](https://rolldown.rs/)** - 一个基于 Rust 的打包工具，旨在统一开发和生产构建：
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                     tiny-vite v2.x                          │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│   Development          Production                           │
+│   开发环境              生产环境                              │
 │   ┌─────────┐         ┌─────────┐                          │
 │   │ Rolldown│         │ Rolldown│                          │
-│   │  scan   │         │  build  │                          │
-│   │ prebund │         │         │                          │
+│   │  扫描   │         │  构建   │                           │
+│   │ 预构建  │         │         │                           │
 │   └─────────┘         └─────────┘                          │
 │        │                   │                                │
 │        └───────┬───────────┘                                │
 │                │                                            │
-│         Same Engine                                         │
-│         Same Behavior                                       │
+│           同一引擎                                           │
+│           行为一致                                           │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Benefits of Rolldown
+### Rolldown 的优势
 
-- **Unified Engine**: Same bundler for dev and prod, eliminating inconsistencies
-- **Rust Performance**: Near-native speed for both scanning and bundling
-- **Rollup Compatible**: Supports most Rollup plugins
-- **Built-in Features**: Native support for TypeScript, JSX transformation
+- **统一引擎**：开发和生产使用同一打包器，消除不一致性
+- **Rust 性能**：扫描和打包都接近原生速度
+- **Rollup 兼容**：支持大部分 Rollup 插件
+- **内置特性**：原生支持 TypeScript、JSX 转换
 
-## Feature
+## 功能特性
 
-- ⚡️ Swift Development Server: Utilizing an integrated development server, it achieves Hot Module Replacement (HMR) and rapid reloading, accelerating the development workflow.
-- 🚀 Instant Compilation: Leveraging modern browser ES module capabilities, it circumvents the bundling process to achieve on-demand compilation and loading, thereby reducing development time.
-- 📝 Streamlined Configuration: With just a single configuration file, projects can be initiated swiftly, eliminating the need for cumbersome setup procedures.
-- 🎉 Lightweight: Complex functionalities have been streamlined, retaining core features to ensure the tool's lightweight nature.
-- 🦀 Rolldown Powered: Unified Rust-based bundler for both development and production.
+- ⚡️ 快速的开发服务器：使用内置的开发服务器，实现热模块替换（HMR）和快速重载，加速开发流程。
+- 🚀 即时编译：利用现代浏览器的 ES 模块特性，避免打包步骤，实现按需编译和加载，减少开发时间。
+- 📝 简化的配置：仅需一个配置文件，即可快速启动项目，无需繁琐的配置过程。
+- 🎉 轻量级：精简了复杂的功能，保持核心特性，使工具更加轻盈。
+- 🦀 Rolldown 驱动：统一的 Rust 打包器，同时服务于开发和生产环境。
 
-## Progress
+## 进展
 
-* [x] Build script
-* [x] CLI scaffolding tool
-* [x] Static file middleware
-* [x] HTTP server
-* [x] Dependency pre-bundling: dependency scanning, dependency building, import path rewriting
-* [x] Plugin system: plugin container and plugin context
-* [x] Core compilation capabilities: entry HTML loading, TS/TSX/JS/JSX compilation, CSS compilation, static asset loading
-* [x] HMR (Hot Module Replacement): module graph, HMR server, HMR client
-* [x] Production build: rolldown bundling, CSS extraction, asset handling
-* [x] Vue plugin support
-* [x] Style support
-* [x] Environment variable support
+- [x] 构建脚本
+- [x] 脚手架 CLI
+- [x] 静态文件中间件
+- [x] http 服务器
+- [x] 依赖预构建：依赖扫描、依赖构建、修改导入路径
+- [x] 插件机制：插件容器对象，插件上下文对象
+- [x] 核心编译能力：入口 html 加载、TS/TSX/JS/JSX 编译、CSS 编译、静态资源加载
+- [x] HMR：模块依赖图、HMR 服务器、HMR 客户端
+- [x] 生产构建：rolldown 打包、CSS 提取、资源处理
+- [x] 支持 vue 插件
+- [x] 支持 style
+- [x] 支持环境变量
 
+## 安装方法
 
-## Install
+在开始之前，请确保你的环境已经安装了 Node.js。
 
-Before you begin, please ensure that Node.js is installed in your environment.
+通过以下步骤安装 tiny-vite：
 
-To install tiny-vite, follow these steps:
-
-1. Install tiny-vite globally by executing the following command:
+1. 全局安装 tiny-vite
 
 ```shell
 npm install -g tiny-vite
 ```
 
-2. Navigate to your project directory.
+2. 进入你的项目目录
 
 ```shell
 mkdir my-app
 cd my-app
 ```
 
-3. Initialize the project (generate configuration files and necessary directory structure).
+3. 初始化项目（生成配置文件和必要的目录结构）
 
 ```shell
 tiny-vite init
 ```
 
-4. Start the development server
+4. 启动开发服务器：
 
 ```shell
 tiny-vite dev
 ```
 
-5. Build for production
+5. 生产构建：
 
 ```shell
 tiny-vite build
@@ -108,10 +107,7 @@ tiny-vite build
 
 ![](/assets/dev.png)
 
-## Contributions
 
-If you encounter any issues or have suggestions for improvement, feel free to raise an Issue or submit a Pull Request. We greatly appreciate community contributions in our endeavor to enhance tiny-vite together!
+## 许可证
 
-## License
-
-Released under the MIT License. Refer to the LICENSE file for more information."
+MIT
