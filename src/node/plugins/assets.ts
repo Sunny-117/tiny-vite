@@ -1,4 +1,5 @@
-import { pathExists, readFile } from "fs-extra";
+import fs from "fs-extra";
+const { pathExists, readFile } = fs;
 import { Plugin } from "../plugin";
 import { ServerContext } from "../server";
 import { cleanUrl, getShortName, normalizePath, removeImportQuery } from "../utils";

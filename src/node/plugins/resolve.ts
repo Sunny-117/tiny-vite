@@ -2,7 +2,8 @@ import resolve from "resolve";
 import { Plugin } from "../plugin";
 import { ServerContext } from "../server/index";
 import path from "path";
-import { pathExists } from "fs-extra";
+import fs from "fs-extra";
+const { pathExists } = fs;
 import { DEFAULT_EXTERSIONS } from "../constants";
 import { removeImportQuery, cleanUrl, isInternalRequest, normalizePath, isWindows } from "../utils";
 

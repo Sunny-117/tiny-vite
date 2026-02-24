@@ -1,5 +1,6 @@
 import { rolldown } from "rolldown";
-import { green } from "picocolors";
+import pc from "picocolors";
+const { green } = pc;
 import path from "path";
 import { rolldownScanPlugin } from "./rolldownScanPlugin";
 import { preBundlePlugin } from "./preBundlePlugin";

@@ -1,4 +1,5 @@
-import { readFile } from "fs-extra";
+import fs from "fs-extra";
+const { readFile } = fs;
 import { Plugin } from "../plugin";
 import { isJSRequest } from "../utils";
 import { transform } from "rolldown/utils";
